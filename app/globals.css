@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.nav {
+  @apply flex justify-between items-center px-6 md:px-20 py-4;
+}
+
+.nav-logo {
+  @apply text-[21px] text-white font-bold;
+}
+.small-text {
+  @apply flex gap-2 text-sm font-medium text-teal-300;
+}
+
+
+.head-text {
+  @apply mt-4 text-6xl leading-[72px] font-bold tracking-[-1.2px] text-gray-200;
+}
+
+
+
+.trending-section {
+  @apply flex flex-col gap-10 px-6 md:px-20 py-24;
+}
+.demo{
+  background-image: linear-gradient(to bottom, #087470, #077a75, #06817a, #05877f, #058e84, #0f978b, #17a093, #1ea99a, #2bb7a6, #36c5b2, #41d3bf, #4ce1cb);
+
+}
+
+
+body {
+    	height: 100vh;
+}
+
+body {
+  background-image: linear-gradient(to right, #050019, #0c0a34, #0d0f50, #160d6c, #280388);
+
+}
+.formSection {
+  background-image: url('/hand.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
