@@ -1,9 +1,22 @@
-import { footerLink } from "@/constant";
+"use client";
+
+import { footerLink, otherlinks, socialMedialinks } from "@/constant";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { TermsAndConditions } from "./TermsAndConditions";
 
 const Footer = () => {
+  const [open, setOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   return (
     <footer className="relative bg-blueGray-200 pt-8 pb-6 text-white">
       <div className="container mx-auto px-4">
@@ -15,53 +28,69 @@ const Footer = () => {
             <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
               Find us on any of these platforms, we respond 1-2 business days.
             </h5>
-            <Image
-            src="/logo.png"
-            width={150}
-            height={90}
-            alt="logo"
-            
-            />
+            <Image src="/logo.png" width={150} height={90} alt="logo" />
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="flex flex-wrap items-top mb-6">
               <div className="w-full lg:w-4/12 px-4 ml-auto">
                 <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
-                  Useful Links
+                  Social Media
                 </span>
                 <ul className="list-unstyled">
-                  <li>
-                    <Link
-                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="/"
-                    >
-                      About Us
-                    </Link>
-                  </li>
-
-                  <li>
-                    <a
-                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="/"
-                    >
-                      Free Products
-                    </a>
-                  </li>
+                  {socialMedialinks.map((link, index) => {
+                    const Icon = link.icon;
+                    return (
+                      <li key={index}>
+                        <Link
+                          className="text-blueGray-600 hover:text-blueGray-800 m-2 flex font-semibold  pb-2 text-sm"
+                          href={link.href}
+                        >
+                          <Icon size={20} />
+                          <p className="ml-2">{link.name}</p>
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
               <div className="w-full lg:w-4/12 px-4">
                 <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
-                  Other Resources
+                  Get in touch
                 </span>
+
+                {isModalOpen && <TermsAndConditions closeModal={closeModal} />}
                 {footerLink.map((link) => (
                   <ul className="list-unstyled" key={link.linkName}>
                     <li>
-                      <Link
-                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href={link.linkHref}
-                      >
-                        {link.linkName}
-                      </Link>
+                      <button>
+                        <Link
+                          className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                          href={link.linkHref}
+                        >
+                          {link.linkName}
+                        </Link>
+                      </button>
+                    </li>
+                  </ul>
+                ))}
+              </div>
+              <div className="w-full lg:w-4/12 px-4">
+                <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
+                  Other
+                </span>
+
+                {isModalOpen && <TermsAndConditions closeModal={closeModal} />}
+                {otherlinks.map((link) => (
+                  <ul className="list-unstyled" key={link.linkName}>
+                    <li>
+                      <button>
+                        <Link
+                          className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                          href={link.linkHref}
+                        >
+                          {link.linkName}
+                        </Link>
+                      </button>
                     </li>
                   </ul>
                 ))}
@@ -72,9 +101,18 @@ const Footer = () => {
         <hr className="my-6 border-blueGray-300" />
         <div className="flex flex-wrap items-center md:justify-between justify-center">
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
-            <div className="text-sm text-blueGray-500 font-semibold py-1">
-              Copyright © <span id="get-current-year">2023.</span>
-             Fendous Team .
+            <div className="text-sm text-blueGray-500 font-semibold py-1 flex flex-row items-center justify-center">
+            
+              <div className="mx-2">
+              <button className="mr-2" onClick={openModal}>
+                Accept Terms
+              </button>
+            
+
+                | Copyright © <span id="get-current-year">2023.</span> Fendous
+                Team
+              </div>
+            
             </div>
           </div>
         </div>

@@ -16,8 +16,8 @@ const Hero = () => {
     </div>
     <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
       <div className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-300 sm:text-6xl">
-        Fendous AI Chatbot: Your AI-Powered Ally for Streamlined Project Management and CRM
+        <h1 className="text-4xl  tracking-tight text-gray-300 sm:text-6xl">
+        <strong>Fendous AI Chatbot</strong> Your AI-Powered Ally for Streamlined Project Management and CRM
         </h1>
         <p className="mt-6 text-lg leading-8 text-gray-300">
         In today's dynamic business landscape, efficiency and customer satisfaction are paramount. Fendous AI Chatbot emerges as a revolutionary solution, empowering businesses to streamline project management and CRM processes with unparalleled efficiency
